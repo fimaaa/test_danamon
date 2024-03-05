@@ -1,0 +1,31 @@
+<resources>
+    <string name="error_default">Something is Wrong</string>
+    <string name="error_search_notfound">%1$s Not Found</string>
+    <string name="error_unauthorized">Session Timeout</string>
+
+    <string name="success_default">Success</string>
+
+    <string name="loading_default">Loading...</string>
+
+    <string name="login">Log In</string>
+    <string name="retry">Retry</string>
+    <string name="link_here">Link Here</string>
+
+    <string name="format_price">Rp%1$s</string>
+
+    <string name="distance_km_unknown">Distance Unknown</string>
+    <string name="distance_km">%1$d KM</string>
+    <string name="distance_m">%1$d M</string>
+    <string name="distance_km_from_here">%1$d KM from here</string>
+    <string name="distance_m_from_here">%1$d M from here</string>
+    <string name="reset">Reset</string>
+    <string name="save">Save</string>
+
+    <string name="user_information_signature_empty">Please Signature First</string>
+    <string name="logout">Logout</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+
+    <string name="general_no_data_title">There is no %1$s for now</string>
+    <string name="general_no_data_desc">Have a nice day :)</string>
+</resources>

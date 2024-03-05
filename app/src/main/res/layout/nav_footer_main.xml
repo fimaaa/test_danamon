@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="bottom"
+    android:translationZ="10dp"
+    android:padding="@dimen/dimen_med">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/tv_footer_version"
+        android:layout_marginBottom="@dimen/dimen_med"
+        style="@style/desc_med_white"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawablePadding="@dimen/dimen_med"
+        android:text="@string/logout"
+        />
+    <TextView
+        android:id="@+id/tv_footer_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/desc_small_white"
+        android:text="@string/version_name"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

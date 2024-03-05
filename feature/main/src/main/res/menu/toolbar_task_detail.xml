@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/actionRejectTask"
+        android:title="@string/reject_delivery"/>
+    <item
+        android:id="@+id/actionReattemptPickup"
+        android:title="@string/reattempt_pickup" />
+    <item
+        android:id="@+id/actionUndelivered"
+        android:title="@string/undelivered" />
+</menu>

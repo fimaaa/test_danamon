@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_dashboard"
+    app:startDestination="@id/orderCompleteFragment">
+
+    <fragment
+        android:id="@+id/orderCompleteFragment"
+        android:name="com.general.jsonplaceholder.photo.ListPhotoFragment"
+        android:label="OrderCompleteFragment"
+        tools:layout="@layout/fragment_list_photo"
+        />
+    <fragment
+        android:id="@+id/orderOnProgressFragment"
+        android:name="com.example.admin.user.ListUserFragment"
+        android:label="OrderOnProgressFragment"
+        tools:layout="@layout/fragment_user_list"
+        />
+</navigation>

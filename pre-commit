@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Running git pre-commit hook"
+
+./gradlew ktlint
+
+RESULT=$?
+
+if [ "$RESULT" = 0 ] ; then
+    echo `Static analysis found no problems.`
+    exit 0
+else
+    echo 1>&2 `Static analysis found violations it could not fix.`
+    exit 1
+fi

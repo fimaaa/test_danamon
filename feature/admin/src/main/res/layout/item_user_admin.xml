@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/dimen_med"
+    >
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="1"
+        style="@style/title_large_light"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Fiqri Malik Abdul Azis"
+        style="@style/desc_med_grey"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_user_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Admin"
+        style="@style/desc_med_grey"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Admin"
+        style="@style/desc_med_grey"
+        />
+</LinearLayout>

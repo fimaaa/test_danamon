@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="disable_order_list">Sedang Tidak Aktif</string>
+
+    <string name="order_detail_fragment">Detail Pengiriman</string>
+    <string name="reject_delivery">Tolak Paket</string>
+    <string name="reattempt_pickup">Atur ulang Penjemputan</string>
+    <string name="undelivered">Tidak dapat dikirim</string>
+
+    <string name="receiver_delivery">Penerima %1$s</string>
+    <string name="hint_name">Nama</string>
+    <string name="accept_delivery">Paket Diterima</string>
+    <string name="note_do_return">Pastikan DOKUMEN PELENGKAP paket ini sudah diproses untuk dikembalikan ke pengirim</string>
+    <string name="open_maps">Open Maps</string>
+
+    <string name="returned_delivery">%1$d Dokumen</string>
+    <string name="rejected_delivery">%1$d Barang</string>
+    <string name="order">Tugas</string>
+
+    <string name="receiver_count">%1$d Penerima</string>
+    <string name="order_reject">Tolak Pesanan</string>
+    <string name="order_reattempt">Autr ulang pesanan</string>
+    <string name="order_undelivered">Gagalkan pengiriman pesanan</string>
+    <string name="order_aproval">Setujui pesanan</string>
+    <string name="page_signature">Tertanda</string>
+    <string name="page_delivery_detail">Detail Pengiriman</string>
+    <string name="page_map">Peta</string>
+
+    <string name="tab_complete">Selesai</string>
+    <string name="tab_onprogress">Berjalan</string>
+    <string name="tagihan_tunai">Tagihan Tunai</string>
+    <string name="hero_balance">Saldo Hero</string>
+    <string name="total_insentif">Total Insentif</string>
+    <string name="total_distance">Total Jarak</string>
+    <string name="note">Catatan</string>
+    <string name="do_return">DO Balik</string>
+    <string name="size">Ukuran</string>
+    <string name="packet_type">Tipe Paket</string>
+    <string name="insentif">Insentif</string>
+    <string name="auto_assign">Terima Otomatis</string>
+    <string name="complete">Selesai</string>
+    <string name="onprogress">Berjalan</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_graph_testdanamon_main" type="id" />
+    <item name="nav_graph_splashscreen" type="id" />
+    <item name="nav_host_fragment" type="id"/>
+    <item name="auth_module" type="id" />
+</resources>

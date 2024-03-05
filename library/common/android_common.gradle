@@ -1,0 +1,130 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "org.jetbrains.kotlin.plugin.parcelize"
+apply plugin: 'dagger.hilt.android.plugin'
+
+apply from: "${project.rootDir}/library/common/ktlint.gradle"
+
+android {
+    compileSdkVersion Release.maxSDK
+
+    defaultConfig {
+        minSdkVersion Release.minSDK
+        targetSdkVersion Release.maxSDK
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "long", "VERSION_CODE", "${Release.versionCode}"
+            resValue "string","version_name","${Release.versionAppName}"
+            minifyEnabled true
+            testCoverageEnabled false
+            minifyEnabled true
+            debuggable false
+            testCoverageEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles "consumer-rules.pro"
+        }
+        preprod {
+            buildConfigField "long", "VERSION_CODE", "${Release.versionCode}"
+            resValue "string","version_name","${Release.versionAppName}-preprod"
+            minifyEnabled true
+            debuggable true
+            testCoverageEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles "consumer-rules.pro"
+        }
+        qa {
+            buildConfigField "long", "VERSION_CODE", "${Release.versionCode}"
+            resValue "string","version_name","${Release.versionAppName}-qa"
+            minifyEnabled true
+            debuggable true
+            testCoverageEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles "consumer-rules.pro"
+        }
+        debug {
+            buildConfigField "long", "VERSION_CODE", "${Release.versionCode}"
+            resValue "string","version_name","${Release.versionAppName}-dev"
+            minifyEnabled false
+            testCoverageEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles "consumer-rules.pro"
+        }
+        localhost {
+            buildConfigField "long", "VERSION_CODE", "${Release.versionCode}"
+            resValue "string","version_name","${Release.versionAppName}-local"
+            minifyEnabled false
+            testCoverageEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles "consumer-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+        resources.excludes.add("META-INF/*")
+
+        exclude 'AndroidManifest.xml'
+        exclude 'lib/arm64-v8a/libcardioDecider.so'
+        exclude 'lib/arm64-v8a/libcardioRecognizer.so'
+        exclude 'lib/arm64-v8a/libcardioRecognizer_tegra2.so'
+        exclude 'lib/arm64-v8a/libopencv_core.so'
+        exclude 'lib/arm64-v8a/libopencv_imgproc.so'
+        exclude 'lib/armeabi/libcardioDecider.so'
+        exclude 'lib/armeabi-v7a/libcardioDecider.so'
+        exclude 'lib/armeabi-v7a/libcardioRecognizer.so'
+        exclude 'lib/armeabi-v7a/libcardioRecognizer_tegra2.so'
+        exclude 'lib/armeabi-v7a/libopencv_core.so'
+        exclude 'lib/armeabi-v7a/libopencv_imgproc.so'
+        exclude 'lib/mips/libcardioDecider.so'
+        exclude 'lib/x86/libcardioDecider.so'
+        exclude 'lib/x86/libcardioRecognizer.so'
+        exclude 'lib/x86/libcardioRecognizer_tegra2.so'
+        exclude 'lib/x86/libopencv_core.so'
+        exclude 'lib/x86/libopencv_imgproc.so'
+        exclude 'lib/x86_64/libcardioDecider.so'
+        exclude 'lib/x86_64/libcardioRecognizer.so'
+        exclude 'lib/x86_64/libcardioRecognizer_tegra2.so'
+        exclude 'lib/x86_64/libopencv_core.so'
+        exclude 'lib/x86_64/libopencv_imgproc.so'
+    }
+}
+
+dependencies {
+    implementation LibraryAndroid.appCompat
+    implementation LibraryAndroid.kotlinX
+    // Dagger Hilt
+    kaptAndroidTest LibraryAndroidTesting.dagger
+    // Hilt dependencies
+    implementation LibraryAndroid.daggerHilt
+    kapt LibraryAndroid.daggerHiltCompiler
+
+    implementation LibraryAndroid.timber
+
+//    // Hilt Jetpack Integrations
+//    implementation LibraryAndroid.daggerHiltViewmodel
+//    annotationProcessor LibraryAndroid.daggerHiltViewModelCompiler
+}
+
+kapt {
+    correctErrorTypes true
+}

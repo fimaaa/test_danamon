@@ -1,0 +1,22 @@
+<resources>
+    <string name="title_activation">Register</string>
+
+    <string name="username_phone">No. Handphone</string>
+    <string name="password">Password</string>
+
+    <string name="log_in" >Log In</string>
+    <string name="log_me_in">log me in</string>
+    <string name="forgot_password">
+        <u>Lupa kata sandi?</u>
+    </string>
+    <string name="login_not_found">Your username or password is invalid</string>
+    <string name="login_length_invalid">Please input your username between 5 and 20 character</string>
+    <string name="login_single_warning">Cek lagi ya, sepertinya kamu sudah login di HP lain</string>
+
+    <!--forgot password page-->
+    <string name="forgot_password_title">Lupa kata sandi?</string>
+    <string name="forgot_password_subtitle">Untuk mengganti ulang kata sandi Anda, \nmasukkan alamat email dan kami akan \nmengirimkan instruksi Anda.</string>
+    <string name="username_not_found">Username / Phone Number not Found</string>
+    <string name="username">Username</string>
+    <string name="full_name">Full Name</string>
+</resources>

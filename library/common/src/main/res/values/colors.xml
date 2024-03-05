@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_background">#FFFFFF</color>
+    <color name="color_primary">#ec7229</color>
+    <color name="colorOptionalPrimary">#fec127</color>
+    <color name="colorOptionalSecondary">#006146</color>
+    <color name="colorOptionalTertiary">#ef9921</color>
+    <color name="colorSwitchTrackOn">#4D30cb9d</color>
+    <color name="colorSwitchTrackOff">#4DFFFFFF</color>
+    <color name="colorBackgroundOptionalPrimary">#FFF8E9</color>
+    <color name="textBody">#929293</color>
+
+    <color name="colorSuccess">#56C378</color>
+    <color name="colorError">#b21f15</color>
+
+    <color name="colorSuccessBackground">#E8F5EC</color>
+    <color name="colorErrorBackground">#FFE5E7</color>
+
+    <color name="text_gray">#9B9B9B</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black15">#26000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="soft_gray">#F9F9FB</color>
+    <color name="gray">#dedede</color>
+    <color name="whiteTransparent">#f2ffffff</color>
+    <color name="whitesmoke">#F7F7F7</color>
+    <color name="charcoalGrey">#424143</color>
+    <color name="eclipse">#393939</color>
+    <color name="tomato">#e24928</color>
+
+    <color name="wistful">#a69dd0</color>
+    <color name="shamrock">#30cb9d</color>
+    <color name="lightRed">#ff434f</color>
+    <color name="magnolia">#edeaff</color>
+    <color name="darkMagnolia">#e0e3ec</color>
+
+    <color name="red">#EE4853</color>
+    <color name="silver">#E9E9F4</color>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_default">Something is Wrong</string>
+    <string name="error_search_notfound">%1$s Not Found</string>
+    <string name="error_unauthorized">Session Timeout</string>
+
+    <string name="success_default">Berhasul</string>
+
+    <string name="loading_default">Mempersiapkan…</string>
+
+    <string name="login">Log In</string>
+    <string name="retry">Retry</string>
+    <string name="link_here">Link Here</string>
+
+    <string name="format_price">Rp%1$s</string>
+
+    <string name="distance_km_unknown">Jarak Tidak dapat diketahui</string>
+    <string name="distance_km">%1$d KM</string>
+    <string name="distance_m">%1$d M</string>
+    <string name="distance_km_from_here">%1$d KM from here</string>
+    <string name="distance_m_from_here">%1$d M from here</string>
+    <string name="reset">Reset</string>
+    <string name="save">Save</string>
+
+    <string name="user_information_signature_empty">Silahkan tanda tangan terlebih dahulu</string>
+    <string name="logout">Keluar</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+
+    <string name="general_no_data_title">Tidak ada %1$s untuk sekarang</string>
+    <string name="general_no_data_desc">Semoga Harimu Menyenangkan :)</string>
+</resources>

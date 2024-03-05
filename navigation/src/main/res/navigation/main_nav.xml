@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/nav_graph_splashscreen"
+    >
+    <include app:graph = "@navigation/nav_graph_splashscreen"/>
+
+    <include app:graph = "@navigation/auth_module"/>
+
+    <include app:graph = "@navigation/nav_graph_testdanamon_main" />
+
+    <action
+        android:id="@+id/navigate_to_main_app"
+        app:destination="@id/nav_graph_testdanamon_main"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:popUpTo="@id/main_nav"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/navigate_to_auth"
+        app:destination="@id/auth_module"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:popUpTo="@id/main_nav"
+        app:popUpToInclusive="true" />
+
+</navigation>

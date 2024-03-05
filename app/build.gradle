@@ -1,0 +1,188 @@
+plugins {
+    id 'com.android.application'
+//    id 'com.google.firebase.crashlytics'
+}
+
+apply from: "${project.rootDir}/library/common/android_common.gradle"
+apply from: "${project.rootDir}/library/common/android_core_dependencies.gradle"
+
+android {
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/license.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/notice.txt', 'META-INF/ASL2.0', 'META-INF/*.kotlin_module']
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.general.testdanamon"
+        versionCode Release.versionCode
+        versionName Release.versionAppName
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
+        signingConfig signingConfigs.debug
+    }
+
+    buildTypes {
+        release {
+            resValue "string", "version_name","${Release.versionAppName}"
+            resValue "string", "app_name", "$appName"
+            buildConfigField "String", "VARIANT", "\"release\""
+//            ext.enableCrashlytics = true
+//            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            minifyEnabled true
+            debuggable false
+            testCoverageEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        preprod {
+//            applicationIdSuffix ".preprod"
+            resValue "string","version_name","${Release.versionAppName}-preprod"
+            resValue "string", "app_name", "$appName-preprod"
+            buildConfigField "String", "VARIANT", "\"preprod\""
+            versionNameSuffix "-preprod"
+//            ext.enableCrashlytics = true
+//            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        qa {
+//            applicationIdSuffix ".qa"
+            resValue "string","version_name","${Release.versionAppName}-qa"
+            resValue "string", "app_name", "$appName-qa"
+            buildConfigField "String", "VARIANT", "\"qa\""
+            minifyEnabled true
+            shrinkResources true
+            versionNameSuffix "-qa"
+//            ext.enableCrashlytics = true
+//            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+//            applicationIdSuffix ".dev"
+            resValue "string","version_name","${Release.versionAppName}-dev"
+            resValue "string", "app_name", "$appName-dev"
+            buildConfigField "String", "VARIANT", "\"development\""
+            versionNameSuffix "-dev"
+//            ext.enableCrashlytics = false
+//            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
+//            minifyEnabled false
+//            debuggable true
+//            testCoverageEnabled true
+        }
+        localhost {
+//            applicationIdSuffix ".dev"
+            resValue "string","version_name","${Release.versionAppName}-local"
+            resValue "string", "app_name", "$appName-local"
+            buildConfigField "String", "VARIANT", "\"development\""
+            versionNameSuffix "-local"
+//            ext.enableCrashlytics = false
+//            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
+//            minifyEnabled false
+//            debuggable true
+//            testCoverageEnabled true
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFileName = "$appName-${variant.versionName}.apk"
+                output.outputFileName = outputFileName
+            }
+        }
+    }
+//    externalNativeBuild {
+//        cmake {
+//            path 'CMakeLists.txt'
+//        }
+//    }
+
+//    testOptions {
+//        unitTests.returnDefaultValues = true
+//        unitTests.all {
+//            jacoco {
+//                includeNoLocationClasses = true
+//            }
+//        }
+//    }
+//    namespace 'com.example.basedagger'
+    namespace 'com.general.testdanamon'
+
+//    packagingOptions {
+//        exclude 'META-INF/DEPENDENCIES'
+//        exclude 'META-INF/LICENSE'
+//        exclude 'META-INF/LICENSE.txt'
+//        exclude 'META-INF/license.txt'
+//        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/NOTICE.txt'
+//        exclude 'META-INF/notice.txt'
+//        exclude 'META-INF/ASL2.0'
+//        exclude("META-INF/*.kotlin_module")
+//        resources.excludes.add("META-INF/*")
+//    }
+}
+
+dependencies {
+    implementation project(Modules.common)
+    implementation project(Modules.modelCommon)
+    implementation project(Modules.navigation)
+    implementation project(Modules.repository)
+    implementation project(Modules.network)
+    implementation project(Modules.local)
+    implementation project(Modules.featureMain)
+    implementation project(Modules.featureSplashscreen)
+    implementation project(Modules.featureAuth)
+    implementation project(Modules.featureJsonPlaceHolder)
+    implementation project(Modules.featureAdmin)
+
+    testImplementation(project(Modules.common))
+    androidTestImplementation(project(Modules.common))
+
+    // Networking
+    // Retrofit + GSON
+    implementation LibraryAndroid.retrofit
+    implementation LibraryAndroid.retrofitConverterGson
+    implementation LibraryAndroid.retrofitRX
+    implementation LibraryAndroid.retrofitConverterMoshi
+    implementation LibraryAndroid.retrofitCoroutines
+
+    implementation(platform(LibraryAndroid.okhttpPlatform))
+    implementation LibraryAndroid.okHttp
+    implementation LibraryAndroid.okhttpLogging
+
+    // Room
+    implementation(LibraryAndroid.roomRuntime)
+    annotationProcessor(LibraryAndroid.roomCompiler)
+    kapt(LibraryAndroid.roomCompiler)
+    implementation(LibraryAndroid.room)
+    testImplementation(LibraryAndroid.roomTesting)
+
+    //HTTP Inspector
+    localhostImplementation LibraryAndroid.chuckerActive
+    debugImplementation LibraryAndroid.chuckerActive
+    preprodImplementation LibraryAndroid.chuckerActive
+    qaImplementation LibraryAndroid.chuckerActive
+    releaseImplementation LibraryAndroid.chuckerDisable
+
+//    // Google
+    implementation LibraryAndroid.gson
+//    implementation LibraryAndroid.googleAuth
+    // Google Ads
+//    implementation LibraryAndroid.googleAds
+
+    // Import the BoM for the Firebase platform
+//    implementation platform(LibraryAndroid.firebaseBOM)
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+//    implementation LibraryAndroid.firebaseCrashlytics
+//    implementation LibraryAndroid.firebaseAnalytics
+//    implementation LibraryAndroid.firebaseAuth
+//    implementation LibraryAndroid.firebaseNotification
+//    implementation LibraryAndroid.firebaseDatabase
+//    implementation LibraryAndroid.firebaseConfig
+
+    implementation LibraryAndroid.customCrash
+}
+
+kapt {
+    correctErrorTypes true
+}

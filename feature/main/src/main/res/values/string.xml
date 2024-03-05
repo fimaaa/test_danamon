@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="disable_order_list">Not Active</string>
+
+    <string name="order_detail_fragment">Detail Delivery</string>
+    <string name="reject_delivery">Reject delivery</string>
+    <string name="reattempt_pickup">Reattempt Pickup</string>
+    <string name="undelivered">Undeliverd</string>
+
+    <string name="receiver_delivery">Receiver %1$s</string>
+    <string name="hint_name">Name</string>
+    <string name="accept_delivery">Accept delivery</string>
+    <string name="note_do_return">Pastikan DOKUMEN PELENGKAP paket ini sudah diproses untuk dikembalikan ke pengirim</string>
+    <string name="open_maps">Open Maps</string>
+
+    <string name="returned_delivery">%1$d Document</string>
+    <string name="rejected_delivery">%1$d delivery</string>
+    <string name="order">order</string>
+
+    <string name="receiver_count">%1$d Receiver</string>
+    <string name="order_reject">Reject Order</string>
+    <string name="order_reattempt">ReAttempt Order</string>
+    <string name="order_undelivered">Undelivered Order</string>
+    <string name="order_aproval">Approval Order</string>
+    <string name="page_signature">Signature</string>
+    <string name="page_delivery_detail">Delivery Detail</string>
+    <string name="page_map">Map</string>
+
+    <string name="tab_complete">Complete</string>
+    <string name="tab_onprogress">OnProgress</string>
+    <string name="tagihan_tunai">Cash bill</string>
+    <string name="hero_balance">Hero Balance</string>
+    <string name="total_insentif">Total Insentif</string>
+    <string name="total_distance">Total Distance</string>
+    <string name="note">Note</string>
+    <string name="do_return">DO Return</string>
+    <string name="size">Size</string>
+    <string name="packet_type">Packet Type</string>
+    <string name="insentif">Insentif</string>
+    <string name="auto_assign">Auto Assign</string>
+    <string name="complete">Complete</string>
+    <string name="onprogress">OnProgress</string>
+
+    <string name="ins" translatable="false">Ins %1$d</string>
+    <string name="im" translatable="false">IM %1$d</string>
+
+    <string name="cop_value" translatable="false">COP : %1$s</string>
+    <string name="cop_value_default" translatable="false">COP : -</string>
+    <string name="default_value" translatable="false">-</string>
+    <string name="cod_value" translatable="false">COD : %1$s</string>
+    <string name="cod_value_default" translatable="false">COD : -</string>
+    <string name="order_instant_normal" translatable="false">Instant</string>
+    <string name="order_instant_multi" translatable="false">Instant Multidrop</string>
+    <string name="semi_colon" translatable="false">:</string>
+
+    <string name="list_photo" translatable="false">List Photo</string>
+    <string name="list_user" translatable="false">List User</string>
+</resources>

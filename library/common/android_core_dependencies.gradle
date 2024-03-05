@@ -1,0 +1,169 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "org.jetbrains.kotlin.plugin.parcelize"
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+
+android {
+    defaultConfig {
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary true
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+
+        testInstrumentationRunner "com.baseapp.daggerhilt.HiltTestRunner"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+    buildFeatures {
+        dataBinding true
+    }
+    buildFeatures {
+        compose = true
+    }
+
+    ndkVersion ndkVersion
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
+    dependencies {
+        implementation fileTree(dir: "libs", include: ["*.jar"])
+
+        implementation LibraryAndroid.constrainLayout
+        implementation LibraryAndroid.googleMaterial
+        implementation LibraryAndroid.recyclerView
+
+        implementation LibraryAndroid.rxAndroid
+        implementation LibraryAndroid.rxJava
+
+        // Check Leak Memory
+        debugImplementation LibraryAndroid.leakCanary
+
+        // Lifecycle
+        implementation LibraryAndroid.lifeCycleViewModel
+        implementation LibraryAndroid.lifeCycleLivedata
+        implementation LibraryAndroid.lifeCycleExt
+
+        // DataBinding
+//        implementation LibraryAndroid.dataBindingCompiler
+//        implementation LibraryAndroid.rxBinding
+
+        implementation(LibraryAndroid.roomRuntime)
+        annotationProcessor(LibraryAndroid.roomCompiler)
+        kapt(LibraryAndroid.roomCompiler)
+        implementation(LibraryAndroid.room)
+        testImplementation(LibraryAndroid.roomTesting)
+
+//        implementation(LibraryAndroid.roomCommon)
+
+        // Navigation Component
+        implementation LibraryAndroid.navigationFragment
+        implementation LibraryAndroid.navigationUi
+
+        implementation LibraryAndroid.swipeRefresh
+
+        implementation LibraryAndroid.geoHash
+
+        // Glide
+        implementation LibraryAndroid.glide
+        kapt LibraryAndroid.glideCompiler
+//        implementation LibraryAndroid.glideToVector
+
+        // Change Language
+        implementation LibraryAndroid.localeHelper
+
+        // Paging 3
+        implementation LibraryAndroid.paging3
+
+        // Google
+        implementation LibraryAndroid.gson
+
+        implementation LibraryAndroid.googleMaps
+        implementation LibraryAndroid.googleLocation
+        implementation LibraryAndroid.googleFlexbox
+
+        // Style
+        implementation LibraryAndroid.skeletonLayout
+        implementation LibraryAndroid.progressButton
+
+        // Multidex
+        implementation LibraryAndroid.multiDex
+
+        /**
+         Compose
+         **/
+
+        implementation platform(LibraryAndroid.composeBom)
+        androidTestImplementation platform(LibraryAndroid.composeBom)
+//
+//        // Tooling support (Previews, etc.)
+        implementation(LibraryAndroid.composeUIPreview)
+        debugImplementation LibraryAndroid.composeUITool
+//
+//        // Material Design
+        implementation LibraryAndroid.composeMaterial3
+//
+        // Material design icons
+        implementation LibraryAndroid.composeMaterialIconCore
+        implementation LibraryAndroid.composeMaterialIconExt
+        // Integration with activities
+        implementation LibraryAndroid.composeActivity
+        // Integration with ViewModels
+        implementation LibraryAndroid.composeViewModel
+        // Integration with observables
+        implementation LibraryAndroid.composeLiveData
+        implementation LibraryAndroid.composeRXJava
+
+        // UI Tests
+        androidTestImplementation LibraryAndroidTesting.composeTestJunit4
+        /**
+         Compose
+         **/
+
+        testImplementation LibraryAndroidTesting.jUnit
+        testImplementation LibraryAndroidTesting.jUnitJupiterTest
+        testImplementation LibraryAndroidTesting.mockk
+        testImplementation LibraryAndroidTesting.roboElectric
+        androidTestImplementation LibraryAndroidTesting.jUnitJupiterTest
+        androidTestImplementation LibraryAndroidTesting.jUnitTest
+
+        androidTestImplementation LibraryAndroidTesting.espresso
+        androidTestImplementation LibraryAndroidTesting.testRunner
+        androidTestImplementation LibraryAndroidTesting.testRules
+
+        // For Robolectric tests.
+        testImplementation LibraryAndroidTesting.daggerHiltTesting
+        // ...with Kotlin.
+        kaptTest LibraryAndroid.daggerHiltCompiler
+        // For instrumented tests.
+        androidTestImplementation LibraryAndroidTesting.daggerHiltTesting
+        // ...with Kotlin.
+        kaptAndroidTest LibraryAndroid.daggerHiltCompiler
+
+        testImplementation LibraryAndroidTesting.truth
+        androidTestImplementation LibraryAndroidTesting.truth
+
+        testImplementation LibraryAndroidTesting.mockitoCore
+        androidTestImplementation LibraryAndroidTesting.mockitoCore
+
+        testImplementation LibraryAndroidTesting.coroutinesTest
+        androidTestImplementation LibraryAndroidTesting.coroutinesTest
+
+        testImplementation LibraryAndroidTesting.archCore
+        androidTestImplementation LibraryAndroidTesting.archCore
+
+        testImplementation(project(Modules.unitTest))
+        androidTestImplementation(project(Modules.unitTest))
+    }
+}

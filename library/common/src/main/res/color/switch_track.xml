@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Track color when checked -->
+    <item android:color="@color/colorSwitchTrackOn" android:state_checked="true"/>
+    <!-- Track color when unchecked -->
+    <item android:color="@color/colorSwitchTrackOff" android:state_checked="false"/>
+<!--    &lt;!&ndash; Track color when disabled &ndash;&gt;-->
+<!--    <item android:color="@color/switch_track_disabled_color" android:state_enabled="false"/>-->
+<!--    &lt;!&ndash; Track color when pressed &ndash;&gt;-->
+<!--    <item android:color="@color/switch_track_pressed_color" android:state_pressed="true"/>-->
+<!--    &lt;!&ndash; Track color when focused &ndash;&gt;-->
+<!--    <item android:color="@color/switch_track_focused_color" android:state_focused="true"/>-->
+</selector>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Thumb color when checked -->
+    <item android:color="@color/colorOptionalTertiary" android:state_checked="true"/>
+    <!-- Thumb color when unchecked -->
+    <item android:color="@color/white" android:state_checked="false"/>
+<!--    &lt;!&ndash; Thumb color when disabled &ndash;&gt;-->
+<!--    <item android:color="@color/switch_thumb_disabled_color" android:state_enabled="false"/>-->
+<!--    &lt;!&ndash; Thumb color when pressed &ndash;&gt;-->
+<!--    <item android:color="@color/switch_thumb_pressed_color" android:state_pressed="true"/>-->
+<!--    &lt;!&ndash; Thumb color when focused &ndash;&gt;-->
+<!--    <item android:color="@color/switch_thumb_focused_color" android:state_focused="true"/>-->
+</selector>

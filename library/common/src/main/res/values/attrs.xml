@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutBlank">
+        <attr name="img" format="reference" />
+        <attr name="text" format="string" />
+        <attr name="blankType" format="enum">
+            <enum name="empty" value="404" />
+            <enum name="history" value="1" />
+            <enum name="search" value="2" />
+            <enum name="warning" value="3" />
+            <enum name="sad" value="4" />
+            <enum name="failed" value="5" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="CustomDateView">
+        <attr name="date" format="string" />
+        <attr name="country" format="string" />
+        <attr name="colorSelected" format="color|reference" />
+        <attr name="colorRangeSelected" format="color|reference" />
+    </declare-styleable>
+    <declare-styleable name="SwipeButton">
+        <attr name="btn_text" format="string" />
+        <attr name="text_color" format="color" />
+        <attr name="bg_color" format="color" />
+        <attr name="arrow_color" format="color" />
+        <attr name="arrow_background_color" format="color" />
+        <attr name="btn_radius" format="float" />
+        <attr name="text_size" format="dimension" />
+        <attr name="go_right" format="boolean" />
+    </declare-styleable>
+</resources>

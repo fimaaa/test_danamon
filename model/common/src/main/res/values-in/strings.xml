@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_default">Something is Wrong</string>
+    <string name="error_search_notfound">%1$s Not Found</string>
+    <string name="error_unauthorized">Session Timeout</string>
+
+    <string name="success_default">Berhasil</string>
+
+    <string name="loading_default">Mempersiapkan...</string>
+
+    <string name="login">Log In</string>
+    <string name="retry">Retry</string>
+    <string name="link_here">Link Here</string>
+
+    <string name="tab_onprogress">Sedang berjalan</string>
+    <string name="tab_done">Selesai</string>
+
+    <string name="format_price">Rp%1$s</string>
+
+    <!-- Status Delivery -->
+    <string name="status_ccs_display">Paket Dibatalkan</string>
+    <string name="status_rpc_display">Belum Diambil</string>
+    <string name="status_asg_display">Ditugaskan menuju FirstMile</string>
+    <string name="status_rtp_display">Siap untuk dijemput</string>
+    <string name="status_col_display">Kurir di lokasi penjemputan</string>
+    <string name="status_rap_display">Mencoba kembali penjemputan</string>
+    <string name="status_papv_display">Paket disetujui</string>
+    <string name="status_prjl_display">Permintaaan ditolak</string>
+    <string name="status_asglm_display">Ditugaskan menuju LastMile</string>
+    <string name="status_pod_display">Paket sedang dalam pengiriman ke penerima</string>
+    <string name="status_cod_display">Kurir sedang di tujuan</string>
+    <string name="status_pdo_display">Paket sudah diantarkan</string>
+    <string name="status_und_display">Tidak bisa terkirim</string>
+    <string name="status_undcortn_display">Kurir sedang ditempat pengembalian</string>
+    <string name="status_undrtn_display">Paket dikembalikan</string>
+    <string name="status_asgrtn_display">Ditugaskan untuk pengembalian</string>
+    <string name="status_cortn_display">Kurir sedang ditempat pengembalian</string>
+    <string name="status_rtn_display">Paket dikembalikan</string>
+</resources>
