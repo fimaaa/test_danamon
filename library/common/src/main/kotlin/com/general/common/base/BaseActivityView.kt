@@ -11,4 +11,5 @@ interface BaseActivityView {
     fun navigateModule(command: NavigationCommand)
     fun checkUpdate(onSuccess: () -> Unit)
     fun changeDataMember(member: Member)
+    fun handleIntentUrl(url: String)
 }

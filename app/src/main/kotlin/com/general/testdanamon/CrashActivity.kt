@@ -52,4 +52,5 @@ class CrashActivity : BaseBindingActivity<ActivityCrashBinding>() {
     }
 
     override fun changeDataMember(member: Member) = Unit
+    override fun handleIntentUrl(url: String) = Unit
 }

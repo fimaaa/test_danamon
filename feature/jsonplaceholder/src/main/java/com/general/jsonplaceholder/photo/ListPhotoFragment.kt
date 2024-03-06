@@ -10,10 +10,10 @@ import com.general.common.base.BaseLoadStateAdapter
 import com.general.common.customview.BlankLayout
 import com.general.common.extension.gone
 import com.general.common.extension.observe
-import com.general.common.extension.showSnackBar
 import com.general.common.extension.toThrowableCode
 import com.general.common.extension.toThrowableMessage
 import com.general.common.extension.visible
+import com.general.common.util.DialogUtils
 import com.general.jsonplaceholder.R
 import com.general.jsonplaceholder.databinding.FragmentListPhotoBinding
 import com.general.model.common.ViewState
@@ -25,12 +25,17 @@ class ListPhotoFragment : BaseBindingFragment<FragmentListPhotoBinding, ListPhot
 
     private lateinit var adapter: PhotoPagingAdapter
 
+    private var urlGlide: String? = null
+
     override fun onInitialization(binding: FragmentListPhotoBinding) = binding.apply {
-        adapter = PhotoPagingAdapter() { photo ->
-            requireContext().showSnackBar(
-                binding.root,
-                photo.title
-            )
+        adapter = PhotoPagingAdapter { photo ->
+            urlGlide = null
+            val url = photo.url
+            DialogUtils.showDialogImage(requireContext(), url) {
+                if (urlGlide == it) return@showDialogImage
+                urlGlide = it
+                parentAction.handleIntentUrl(it)
+            }
         }.apply {
             withLoadStateHeaderAndFooter(
                 header = BaseLoadStateAdapter { retry() },

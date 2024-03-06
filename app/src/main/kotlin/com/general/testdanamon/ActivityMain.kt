@@ -1,7 +1,10 @@
 package com.general.testdanamon
 
 import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
@@ -18,6 +21,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.general.common.base.BaseBindingActivity
 import com.general.common.extension.changeStatusBarColor
 import com.general.common.extension.gone
+import com.general.common.extension.toViewState
 import com.general.common.extension.visible
 import com.general.common.helper.PermissionHelper.getPermission
 import com.general.model.common.user.Member
@@ -222,6 +226,16 @@ class ActivityMain : BaseBindingActivity<ActivityMainBinding>() {
         navHeaderMainBinding.tvNameMember.text = member.name
         navHeaderMainBinding.tvIdMember.text = member.memberId.toString()
         navHeaderMainBinding.tvPhoneMember.text = member.phone.ifEmpty { "-" }
+    }
+
+    override fun handleIntentUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            e.printStackTrace()
+            baseViewModel.setStatusViewModel(e.toViewState())
+        }
     }
 
     override fun onStart() {

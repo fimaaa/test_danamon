@@ -10,6 +10,7 @@ import com.faltenreich.skeletonlayout.applySkeleton
 import com.general.common.base.BaseBindingFragment
 import com.general.common.base.BaseLoadStateAdapter
 import com.general.common.customview.BlankLayout
+import com.general.common.extension.Toast_Default
 import com.general.common.extension.gone
 import com.general.common.extension.observe
 import com.general.common.extension.showSnackBar
@@ -29,7 +30,8 @@ class ListUserFragment : BaseBindingFragment<FragmentUserListBinding, ListUserVi
         adapter = UserPagingAdapter { member ->
             requireContext().showSnackBar(
                 binding.root,
-                member.userName
+                member.userName,
+                Toast_Default
             )
         }.apply {
             withLoadStateHeaderAndFooter(

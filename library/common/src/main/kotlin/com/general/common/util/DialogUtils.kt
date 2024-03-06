@@ -2,12 +2,19 @@ package com.general.common.util
 
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.general.common.R
 import com.general.common.databinding.BasedialogAlertBinding
 import com.general.common.databinding.CustomTwobuttonDialogBinding
@@ -141,5 +148,64 @@ object DialogUtils {
                 listenerBtn1.invoke(dialog)
             }
         }
+    }
+
+    fun showDialogImage(
+        mContext: Context,
+        bitmap: Bitmap
+    ) {
+        val builder = AlertDialog.Builder(mContext)
+        builder.setView(ImageView(mContext).apply {
+            setImageBitmap(bitmap)
+        })
+        val dialog = builder.create()
+        dialog.setCancelable(true)
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.bg_rounded)
+    }
+
+    fun showDialogImage(
+        mContext: Context,
+        url: String,
+        onFailed: (String) -> Unit
+    ) {
+        val builder = AlertDialog.Builder(mContext)
+
+        val circularProgressDrawable = CircularProgressDrawable(mContext)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+
+        val imageView = ImageView(mContext).apply {
+            setImageDrawable(circularProgressDrawable)
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+            adjustViewBounds = true
+        }
+
+        builder.setView(imageView)
+        val dialog = builder.create()
+        dialog.setCancelable(true)
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.bg_rounded)
+
+        Glide.with(mContext)
+            .asBitmap()
+            .load(url)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    imageView.setImageBitmap(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                }
+
+                override fun onLoadFailed(errorDrawable: Drawable?) {
+                    dialog.dismiss()
+                    onFailed.invoke(url)
+                }
+            })
     }
 }
