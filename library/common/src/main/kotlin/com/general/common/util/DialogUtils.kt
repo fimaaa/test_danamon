@@ -20,6 +20,7 @@ import com.general.common.databinding.BasedialogAlertBinding
 import com.general.common.databinding.CustomTwobuttonDialogBinding
 import com.general.common.extension.gone
 import com.general.common.extension.visible
+import com.github.chrisbanes.photoview.PhotoView
 
 object DialogUtils {
 
@@ -176,7 +177,7 @@ object DialogUtils {
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
 
-        val imageView = ImageView(mContext).apply {
+        val imageView = PhotoView(mContext).apply {
             setImageDrawable(circularProgressDrawable)
             layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -196,6 +197,7 @@ object DialogUtils {
             .load(url)
             .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    circularProgressDrawable.stop()
                     imageView.setImageBitmap(resource)
                 }
 

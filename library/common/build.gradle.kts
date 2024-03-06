@@ -45,6 +45,7 @@ dependencies {
     implementation(LibraryAndroid.gcacaceSignaturePad)
     implementation(LibraryAndroid.dhavaImagePicker)
     implementation(LibraryAndroid.zeloryCompressor)
+    implementation(LibraryAndroid.photoView)
 
 //    implementation(platform(LibraryAndroid.firebaseBOM))
 //    implementation(LibraryAndroid.firebaseCrashlytics)

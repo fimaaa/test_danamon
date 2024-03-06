@@ -106,6 +106,7 @@ object Versions {
     const val webSocket = "1.5.1"
     const val swipeRefresh = "1.1.0"
     const val customCrash = "2.4.0"
+    const val photoView = "2.3.0"
 }
 
 object LibraryProject {
@@ -289,6 +290,9 @@ object LibraryAndroid {
     const val swipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
 
     const val customCrash = "cat.ereza:customactivityoncrash:${Versions.customCrash}"
+
+    const val photoView =  "com.github.chrisbanes:PhotoView:${Versions.photoView}"
+
 }
 
 object LibraryAndroidTesting {
