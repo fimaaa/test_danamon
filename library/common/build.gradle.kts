@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-//    id("com.google.firebase.crashlytics")
+    id("com.google.firebase.crashlytics")
 }
 
 apply(from = "${project.rootDir}/library/common/android_common.gradle")
@@ -47,8 +47,8 @@ dependencies {
     implementation(LibraryAndroid.zeloryCompressor)
     implementation(LibraryAndroid.photoView)
 
-//    implementation(platform(LibraryAndroid.firebaseBOM))
-//    implementation(LibraryAndroid.firebaseCrashlytics)
-//    implementation(LibraryAndroid.firebaseAnalytics)
-//    implementation(LibraryAndroid.firebaseConfig)
+    implementation(platform(LibraryAndroid.firebaseBOM))
+    implementation(LibraryAndroid.firebaseCrashlytics)
+    implementation(LibraryAndroid.firebaseAnalytics)
+    implementation(LibraryAndroid.firebaseConfig)
 }

@@ -19,7 +19,7 @@ dependencies {
     implementation(project(Modules.featureJsonPlaceHolder))
     implementation(project(Modules.featureAdmin))
 
-//    implementation(platform(LibraryAndroid.firebaseBOM))
-//    implementation(LibraryAndroid.firebaseDatabase)
-//    implementation(LibraryAndroid.firebaseConfig)
+    implementation(platform(LibraryAndroid.firebaseBOM))
+    implementation(LibraryAndroid.firebaseDatabase)
+    implementation(LibraryAndroid.firebaseConfig)
 }

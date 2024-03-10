@@ -56,6 +56,6 @@ dependencies {
 
     implementation(LibraryAndroid.gson)
 
-//    implementation(platform(LibraryAndroid.firebaseBOM))
-//    implementation(LibraryAndroid.firebaseDatabase)
+    implementation(platform(LibraryAndroid.firebaseBOM))
+    implementation(LibraryAndroid.firebaseDatabase)
 }

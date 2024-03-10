@@ -36,8 +36,8 @@ dependencies {
 
     implementation(LibraryAndroid.geoHash)
 
-//    implementation(platform(LibraryAndroid.firebaseBOM))
-//    implementation(LibraryAndroid.firebaseDatabase)
-//    implementation(LibraryAndroid.firebaseNotification)
-//    implementation(LibraryAndroid.firebaseConfig)
+    implementation(platform(LibraryAndroid.firebaseBOM))
+    implementation(LibraryAndroid.firebaseDatabase)
+    implementation(LibraryAndroid.firebaseNotification)
+    implementation(LibraryAndroid.firebaseConfig)
 }

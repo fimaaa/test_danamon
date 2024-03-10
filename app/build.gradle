@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
-//    id 'com.google.firebase.crashlytics'
+    id("com.google.gms.google-services")
+    id 'com.google.firebase.crashlytics'
 }
 
 apply from: "${project.rootDir}/library/common/android_common.gradle"
@@ -30,8 +31,8 @@ android {
             resValue "string", "version_name","${Release.versionAppName}"
             resValue "string", "app_name", "$appName"
             buildConfigField "String", "VARIANT", "\"release\""
-//            ext.enableCrashlytics = true
-//            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            ext.enableCrashlytics = true
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
             minifyEnabled true
             debuggable false
             testCoverageEnabled true
@@ -43,8 +44,8 @@ android {
             resValue "string", "app_name", "$appName-preprod"
             buildConfigField "String", "VARIANT", "\"preprod\""
             versionNameSuffix "-preprod"
-//            ext.enableCrashlytics = true
-//            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            ext.enableCrashlytics = true
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         qa {
@@ -55,8 +56,8 @@ android {
             minifyEnabled true
             shrinkResources true
             versionNameSuffix "-qa"
-//            ext.enableCrashlytics = true
-//            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            ext.enableCrashlytics = true
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -65,8 +66,8 @@ android {
             resValue "string", "app_name", "$appName-dev"
             buildConfigField "String", "VARIANT", "\"development\""
             versionNameSuffix "-dev"
-//            ext.enableCrashlytics = false
-//            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
+            ext.enableCrashlytics = false
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
 //            minifyEnabled false
 //            debuggable true
 //            testCoverageEnabled true
@@ -77,8 +78,8 @@ android {
             resValue "string", "app_name", "$appName-local"
             buildConfigField "String", "VARIANT", "\"development\""
             versionNameSuffix "-local"
-//            ext.enableCrashlytics = false
-//            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
+            ext.enableCrashlytics = false
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
 //            minifyEnabled false
 //            debuggable true
 //            testCoverageEnabled true
@@ -165,20 +166,20 @@ dependencies {
 
 //    // Google
     implementation LibraryAndroid.gson
-//    implementation LibraryAndroid.googleAuth
+    implementation LibraryAndroid.googleAuth
     // Google Ads
 //    implementation LibraryAndroid.googleAds
 
     // Import the BoM for the Firebase platform
-//    implementation platform(LibraryAndroid.firebaseBOM)
+    implementation platform(LibraryAndroid.firebaseBOM)
     // Declare the dependencies for the Crashlytics and Analytics libraries
     // When using the BoM, you don't specify versions in Firebase library dependencies
-//    implementation LibraryAndroid.firebaseCrashlytics
-//    implementation LibraryAndroid.firebaseAnalytics
-//    implementation LibraryAndroid.firebaseAuth
-//    implementation LibraryAndroid.firebaseNotification
-//    implementation LibraryAndroid.firebaseDatabase
-//    implementation LibraryAndroid.firebaseConfig
+    implementation LibraryAndroid.firebaseCrashlytics
+    implementation LibraryAndroid.firebaseAnalytics
+    implementation LibraryAndroid.firebaseAuth
+    implementation LibraryAndroid.firebaseNotification
+    implementation LibraryAndroid.firebaseDatabase
+    implementation LibraryAndroid.firebaseConfig
 
     implementation LibraryAndroid.customCrash
 }

@@ -19,10 +19,10 @@ buildscript {
         classpath LibraryProject.gradlePlugin
         classpath LibraryProject.navigation
         classpath LibraryProject.daggerHilt
-//        classpath LibraryProject.googleService
+        classpath LibraryProject.googleService
 
         // Add the Crashlytics Gradle plugin
-//        classpath LibraryProject.firebaseCrashlytics
+        classpath LibraryProject.firebaseCrashlytics
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

@@ -30,6 +30,9 @@ import com.general.navigation.NavigationCommand
 import com.general.testdanamon.databinding.ActivityMainBinding
 import com.general.testdanamon.databinding.NavHeaderMainBinding
 import com.general.testdanamon.main.MainViewModel
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
+import timber.log.Timber
 import java.util.Locale
 import com.general.common.R as commonR
 import com.general.navigation.R as navR
@@ -79,23 +82,21 @@ class ActivityMain : BaseBindingActivity<ActivityMainBinding>() {
     }
 
     private fun setConfigUpdateApp() {
-        // TODO IF HAVE FIREBASE
-//        val firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-//        val remoteConfigSettings = FirebaseRemoteConfigSettings.Builder()
-//            .setMinimumFetchIntervalInSeconds(0) // Set to 0 for developer mode
-//            .build()
-//        firebaseRemoteConfig.setConfigSettingsAsync(remoteConfigSettings)
-//        firebaseRemoteConfig.fetchAndActivate() // fetch every minutes
-//            .addOnCompleteListener { task ->
-//                Timber.d("TAG COMPLETE LIST")
-//                if (task.isSuccessful) {
-//                    Timber.d("remote config is fetched.")
-//                    firebaseRemoteConfig.fetchAndActivate()
-//                }
-//            }
-//            .addOnFailureListener {
-//                Timber.e("TAG ERROR $it")
-//            }
+        val firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+        val remoteConfigSettings = FirebaseRemoteConfigSettings.Builder()
+            .setMinimumFetchIntervalInSeconds(0) // Set to 0 for developer mode
+            .build()
+        firebaseRemoteConfig.setConfigSettingsAsync(remoteConfigSettings)
+        firebaseRemoteConfig.fetchAndActivate() // fetch every minutes
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Timber.d("remote config is fetched.")
+                    firebaseRemoteConfig.fetchAndActivate()
+                }
+            }
+            .addOnFailureListener {
+                Timber.e("$it")
+            }
     }
 
     fun getCurrentLocale(context: Context): Locale? {
@@ -203,10 +204,6 @@ class ActivityMain : BaseBindingActivity<ActivityMainBinding>() {
         )
         NavigationUI.setupWithNavController(binding.navView, parentController)
         findNavController(R.id.nav_host_fragment).addOnDestinationChangedListener { controller, destination, argument ->
-            if (destination == null) {
-                // Navigate to a default/fallback destination
-                findNavController(R.id.nav_host_fragment).navigate(com.general.splashscreen.R.id.splashScreenFragment)
-            }
             // Buat CUstom tombol dikiri / mau custom toolbar
             if (!customActionFragment(controller, destination, argument)) {
                 binding.topAppBar.visible()

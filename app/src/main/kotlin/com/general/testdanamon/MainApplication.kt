@@ -11,8 +11,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import cat.ereza.customactivityoncrash.config.CaocConfig
 import com.general.common.base.BaseApplication
+import com.general.model.common.enum.EnumBuild
 import com.general.model.common.enum.Language
 import com.general.network.di.ExternalData
+import com.google.firebase.FirebaseApp
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import dagger.hilt.android.HiltAndroidApp
 import java.util.Locale
 import javax.inject.Inject
@@ -30,13 +33,13 @@ class MainApplication : BaseApplication(), LifecycleEventObserver {
         ExternalData
         caocConfig.apply()
         configNotificationChannel()
-//        FirebaseApp.initializeApp(this)
-//        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(
-//            when (BuildConfig.BUILD_TYPE) {
-//                EnumBuild.DEBUG.id, EnumBuild.LOCAL.id -> false
-//                else -> true
-//            }
-//        )
+        FirebaseApp.initializeApp(this)
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(
+            when (BuildConfig.BUILD_TYPE) {
+                EnumBuild.DEBUG.id, EnumBuild.LOCAL.id -> false
+                else -> true
+            }
+        )
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
     }
 

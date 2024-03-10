@@ -26,6 +26,13 @@ abstract class BaseBindingFragment<VB : ViewBinding, VM : BaseViewModel> : BaseF
     open fun onInitialization(binding: VB) = binding.apply {
     }
 
+    data class BaseReqFind<T : Any>(
+        val page: Int,
+        val size: Int,
+        val value: T,
+        val sortBy: Map<String, Any>
+    )
+
     override fun onInitialization() {
         super.onInitialization()
         val vbType = (javaClass.genericSuperclass as ParameterizedType)
@@ -67,8 +74,12 @@ abstract class BaseBindingFragment<VB : ViewBinding, VM : BaseViewModel> : BaseF
                         command.directions,
                         getExtras()
                     )
+
                     is NavigationCommand.Back -> findNavController().navigateUp()
-                    is NavigationCommand.ManualTo -> findNavController().navigate(command.directionId, command.bundle)
+                    is NavigationCommand.ManualTo -> findNavController().navigate(
+                        command.directionId,
+                        command.bundle
+                    )
                 }
             }
         }
