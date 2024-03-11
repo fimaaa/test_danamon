@@ -182,6 +182,7 @@ class ActivityMain : BaseBindingActivity<ActivityMainBinding>() {
 
     private fun settingUpFragment() {
         binding.layoutNavFooter.tvLogout.setOnClickListener {
+            println("TAG LOGOUT")
             navigateModule(
                 NavigationCommand.To(
                     MainNavDirections.navigateToAuth()
@@ -223,9 +224,9 @@ class ActivityMain : BaseBindingActivity<ActivityMainBinding>() {
         val navHeaderMainBinding = NavHeaderMainBinding.bind(binding.navView.getHeaderView(0))
         viewModel
 
-        navHeaderMainBinding.tvNameMember.text = member.name
-        navHeaderMainBinding.tvIdMember.text = member.memberId.toString()
-        navHeaderMainBinding.tvPhoneMember.text = member.phone.ifEmpty { "-" }
+        navHeaderMainBinding.tvNameMember.text = member.fullname
+        navHeaderMainBinding.tvIdMember.text = member.id
+        navHeaderMainBinding.tvPhoneMember.text = member.phoneNumber.ifEmpty { "-" }
     }
 
     override fun handleIntentUrl(url: String) {

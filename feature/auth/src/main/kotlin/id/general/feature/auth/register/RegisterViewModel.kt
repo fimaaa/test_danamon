@@ -3,6 +3,7 @@ package id.general.feature.auth.register
 import com.general.common.base.BaseViewModel
 import com.general.common.extension.safeApiCollect
 import com.general.model.common.ViewState
+import com.general.model.common.user.CreateMemberData
 import com.general.repository.repository.SessionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -86,14 +87,12 @@ class RegisterViewModel @Inject constructor(
         safeApiCollect(state = _validateRegister) {
             flow {
                 emit(ViewState.LOADING)
-                sessionRepository.registerMember(
-                    userName,
-                    name,
-                    userType,
-                    phone,
-                    password,
-                    deviceId
-                )
+                sessionRepository.registerMember(CreateMemberData(
+                    username = userName,
+                    fullname = name,
+                    password = password,
+                    phoneNumber = phone
+                ))
 
                 emit(ViewState.SUCCESS(data = listOf<Pair<Int, String>>()))
             }

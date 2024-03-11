@@ -33,6 +33,8 @@ class LoginFragment : BaseBindingFragment<FragmentLoginBinding, LoginViewModel>(
                     }
                 }
                 is ViewState.SUCCESS -> {
+                    println("TAG LOGINSTATE ${sharedViewModel.loginState}")
+                    sharedViewModel.onNotAuth()
                     parentAction.changeDataMember(it.data)
                     parentAction.navigateModule(
                         NavigationCommand.To(MainNavDirections.navigateToMainApp())
@@ -64,6 +66,7 @@ class LoginFragment : BaseBindingFragment<FragmentLoginBinding, LoginViewModel>(
 
     override fun onResume() {
         super.onResume()
+        println("TAG ONRESUMSE LOGINFRAGMENT")
         parentAction.toolbarVisibility(false)
         sharedViewModel.clearData()
     }

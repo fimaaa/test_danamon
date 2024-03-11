@@ -30,8 +30,17 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    fun onNotAuth() {
+        viewModelScope.launch(Dispatchers.IO) {
+            isLoggedIn.value = false
+            _loginState.value = ViewState.EMPTY()
+        }
+    }
+
     fun clearData() {
         viewModelScope.launch(Dispatchers.IO) {
+            isLoggedIn.value = false
+            _loginState.value = ViewState.EMPTY()
             repo.logout()
         }
     }

@@ -30,7 +30,7 @@ class ListUserFragment : BaseBindingFragment<FragmentUserListBinding, ListUserVi
         adapter = UserPagingAdapter { member ->
             requireContext().showSnackBar(
                 binding.root,
-                member.userName,
+                member.username,
                 Toast_Default
             )
         }.apply {

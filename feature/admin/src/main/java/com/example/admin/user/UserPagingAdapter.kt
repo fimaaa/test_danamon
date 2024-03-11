@@ -34,17 +34,17 @@ class UserPagingAdapter(
         }
 
         fun bind(item: Member) = binding.apply {
-            tvUserId.text = item.memberId.toString()
-            tvUserName.text = item.userName
-            tvUserType.text = item.userType
-            tvPhone.text = item.phone
+            tvUserId.text = item.id
+            tvUserName.text = item.username
+            tvUserType.text = item.memberType
+            tvPhone.text = item.phoneNumber
         }
     }
 
     companion object {
         private val ORDER_COMPARATOR = object : DiffUtil.ItemCallback<Member>() {
             override fun areItemsTheSame(oldItem: Member, newItem: Member): Boolean =
-                oldItem.memberId == newItem.memberId
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Member, newItem: Member): Boolean =
                 oldItem == newItem

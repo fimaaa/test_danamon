@@ -39,6 +39,7 @@ class TokenAuthenticator @Inject constructor(
             val newMember = sessionService.refreshToken(
                 ("Bearer " + oldMember?.refreshToken)
             )
+            println("TAG DATAJSON MEMBER TOKEN AUTH $newMember")
             appPreference.storeValue(APP_USER, Gson().toJson(newMember.data))
             appPreference.storeValue(APP_TOKEN, newMember.data.apiToken)
             appPreference.readToken() ?: ""

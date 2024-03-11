@@ -24,10 +24,16 @@ data class BaseResponse<M, D>(
     @Json(name = "data")
     @SerializedName(value = "data")
     val data: D,
-    @Json(name = "metadata")
-    @SerializedName(value = "metadata")
-    val pagination: BasePagination? = null,
     @Json(name = "trace_id")
     @SerializedName(value = "trace_id")
     var traceId: String? = null
+)
+
+data class BaseResponsePagination<D>(
+    @Json(name = "list")
+    @SerializedName(value = "list")
+    var listData: List<D> = listOf(),
+    @Json(name = "metadata")
+    @SerializedName(value = "metadata")
+    val pagination: BasePagination? = null
 )

@@ -27,11 +27,12 @@ class DashboardFragment : BaseBindingFragment<FragmentDashboardBinding, Dashboar
         viewPager.offscreenPageLimit = 3
 
         viewLifecycleOwner.lifecycleScope.launch {
+            val member = viewModel.getMember() ?: return@launch
 
             adapter = DashboardViewPagerAdapter(
                 childFragmentManager,
                 viewLifecycleOwner.lifecycle,
-                (viewModel.getMember()?.userType ?: "") == "Admin"
+                member.memberType == "Admin"
             )
             viewPager.adapter = adapter
 

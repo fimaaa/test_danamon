@@ -71,6 +71,7 @@ class AppPreference @Inject constructor(@ApplicationContext private val context:
             if (!data.isNullOrEmpty()) {
                 member = Gson().fromJson(data, Member::class.java)
             }
+            println("TAG READ DATAJSON MEMBER $member")
             member
         } catch (e: Exception) {
             null
