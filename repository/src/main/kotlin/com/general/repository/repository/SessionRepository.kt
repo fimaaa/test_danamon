@@ -7,6 +7,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.general.common.GeneralIODispatcher
+import com.general.common.extension.getString
 import com.general.common.extension.safeGetResponse
 import com.general.common.provider.LocationProvider
 import com.general.local.AppPreference
@@ -24,7 +25,6 @@ import com.general.network.service.MemberService
 import com.general.repository.common.Repository
 import com.general.repository.datasource.MemberPagingSource
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -216,19 +216,34 @@ class SessionRepositoryImpl @Inject constructor(
         filter: Member,
         sortBy: Map<String, Any>
     ): List<Member> {
-        val gson = Gson()
-        val sortJson = gson.toJsonTree(sortBy).asJsonObject
-        val jsonObject = JsonObject().apply {
-            val memberJson = gson.toJsonTree(filter).asJsonObject
-            add("value", memberJson)
+        val option = hashMapOf<String, String>()
+        sortBy.entries.forEach {
+            when {
+                (it.value is String) && (it.value as String).isNotEmpty() -> {
+                    option[it.key] = it.value as String
+                }
+
+                it.value is Number -> {
+                    option[it.key] = it.value.toString()
+                }
+            }
+        }
+
+        Gson().toJsonTree(filter).asJsonObject.entrySet().forEach {
+            when {
+                it.value.getString().isNotEmpty() -> {
+                    option[it.key] = it.value.getString()
+                }
+
+                it.value.isJsonPrimitive && it.value.asJsonPrimitive.isNumber -> {
+                    option[it.key] = it.value.toString()
+                }
+            }
         }
         return serviceMember.getAllMember(
             pageSize,
-            page
-//            MemberFind(
-//                filter = filter,
-//                sortBy = sortJson.toString()
-//            )
+            page,
+            option
         ).data.listData
     }
 

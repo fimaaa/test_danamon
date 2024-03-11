@@ -2,6 +2,7 @@ package com.general.repository.datasource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.general.common.extension.getString
 import com.general.model.common.user.Member
 import com.general.network.service.MemberService
 import com.google.gson.Gson
@@ -17,23 +18,36 @@ class MemberPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Member> = try {
         val page = params.key ?: STARTING_PAGE_INDEX
-        val gson = Gson()
 
-//        val sortJson = gson.toJsonTree(sortBy).asJsonObject
-//        val jsonObject = JsonObject().apply {
-//
-//            add("sort_by", sortJson)
-//
-//            val memberJson = gson.toJsonTree(filter).asJsonObject
-//            add("value", memberJson)
-//        }
+        val option = hashMapOf<String, String>()
+        sortBy.entries.forEach {
+            when {
+                (it.value is String) && (it.value as String).isNotEmpty() -> {
+                    option[it.key] = it.value as String
+                }
+
+                it.value is Number -> {
+                    option[it.key] = it.value.toString()
+                }
+            }
+        }
+
+        Gson().toJsonTree(filter).asJsonObject.entrySet().forEach {
+            when {
+                it.value.getString().isNotEmpty() -> {
+                    option[it.key] = it.value.getString()
+                }
+
+                it.value.isJsonPrimitive && it.value.asJsonPrimitive.isNumber -> {
+                    option[it.key] = it.value.toString()
+                }
+            }
+        }
+
         val response = serviceMember.getAllMember(
             limit,
-            page
-//            MemberFind(
-//                filter = filter,
-//                sortBy = sortJson.toString()
-//            )
+            page,
+            option
         ).data.listData
 
         println("TAG RESPONSE $response $page")

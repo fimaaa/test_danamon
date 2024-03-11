@@ -8,6 +8,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface MemberService {
     @POST("api/v1/member/create")
@@ -16,8 +17,8 @@ interface MemberService {
     @GET("api/v1/member")
     suspend fun getAllMember(
         @Query("size") pageSize: Int,
-        @Query("page") page: Int
-//        @Query("") filter: String,
+        @Query("page") page: Int,
+        @QueryMap options: Map<String, String> = mapOf()
     ): BaseResponse<String, BaseResponsePagination<Member>>
 
     @GET("api/v1/member/{id}")

@@ -89,9 +89,3 @@ data class MemberLocal(
         }
     }
 }
-
-// fun MemberLocal.toMember() =
-//    Member(memberId, userName, name, userType, phone, apiToken, refreshToken, password)
-//
-// fun Member.toLocal() =
-//    MemberLocal(memberId, userName, name, userType, phone, apiToken, refreshToken, password)

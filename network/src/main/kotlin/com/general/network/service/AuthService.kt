@@ -17,7 +17,7 @@ interface AuthService {
         @Field("id_device") idDevice: String
     ): BaseResponse<String, Member>
 
-    @POST("api/v1/auth/refresh-token")
+    @POST("api/v1/auth/refresh")
     suspend fun refreshToken(
         @Header("Authorization") refreshToken: String
     ): BaseResponse<String, Member>
