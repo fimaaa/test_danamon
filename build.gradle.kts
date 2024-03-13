@@ -49,6 +49,10 @@ tasks {
 }
 
 //tasks.getByPath(':app:preBuild').dependsOn installGitHook
-tasks.named("installGitHook") {
+task("run") {
     dependsOn(":installGitHook")
 }
+
+//tasks.named("") {
+//    dependsOn("installGitHook")
+//}

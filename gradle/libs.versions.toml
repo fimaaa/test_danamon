@@ -80,7 +80,7 @@ swipeRefresh = "1.1.0"
 customCrash = "2.4.0"
 photoView = "2.3.0"
 dataBindingCompiler = "4.0.1"
-daggerHiltViewmodel = "1.0.0-alpha03"
+daggerHiltViewmodel = "1.2.0"
 geoHash = "1.0"
 composeBom = "2024.02.02"
 
