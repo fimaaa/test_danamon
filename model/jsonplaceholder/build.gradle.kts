@@ -12,20 +12,20 @@ android {
 
 dependencies {
 
-    implementation(platform(LibraryAndroid.composeBom))
-    androidTestImplementation(platform(LibraryAndroid.composeBom))
+    implementation(platform(libs.composeBom))
+    androidTestImplementation(platform(libs.composeBom))
 
-    implementation(LibraryAndroid.composeMaterial3)
+    implementation(libs.composeMaterial3)
 
-    implementation(LibraryAndroid.moshi)
-    implementation(LibraryAndroid.moshiKotlin)
-    implementation(LibraryAndroid.gson)
+    implementation(libs.moshi)
+    implementation(libs.moshiKotlin)
+    implementation(libs.gson)
 
-    implementation(LibraryAndroid.roomRuntime)
-    annotationProcessor(LibraryAndroid.roomCompiler)
-    kapt(LibraryAndroid.roomCompiler)
-    implementation(LibraryAndroid.room)
-    testImplementation(LibraryAndroid.roomTesting)
+    implementation(libs.roomRuntime)
+    annotationProcessor(libs.roomCompiler)
+    kapt(libs.roomCompiler)
+    implementation(libs.room)
+    testImplementation(libs.roomTesting)
 
-//    implementation(LibraryAndroid.roomCommon)
+//    implementation(libs.roomCommon)
 }

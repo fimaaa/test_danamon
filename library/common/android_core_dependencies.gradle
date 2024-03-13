@@ -40,130 +40,130 @@ android {
     dependencies {
         implementation fileTree(dir: "libs", include: ["*.jar"])
 
-        implementation LibraryAndroid.constrainLayout
-        implementation LibraryAndroid.googleMaterial
-        implementation LibraryAndroid.recyclerView
+        implementation libs.constrainLayout
+        implementation libs.googleMaterial
+        implementation libs.recyclerView
 
-        implementation LibraryAndroid.rxAndroid
-        implementation LibraryAndroid.rxJava
+        implementation libs.rxAndroid
+        implementation libs.rxJava
 
         // Check Leak Memory
-        debugImplementation LibraryAndroid.leakCanary
+        debugImplementation libs.leakCanary
 
         // Lifecycle
-        implementation LibraryAndroid.lifeCycleViewModel
-        implementation LibraryAndroid.lifeCycleLivedata
-        implementation LibraryAndroid.lifeCycleExt
+        implementation libs.lifeCycleViewModel
+        implementation libs.lifeCycleLivedata
+        implementation libs.lifeCycleExt
 
         // DataBinding
-//        implementation LibraryAndroid.dataBindingCompiler
-//        implementation LibraryAndroid.rxBinding
+//        implementation libs.dataBindingCompiler
+//        implementation libs.rxBinding
 
-        implementation(LibraryAndroid.roomRuntime)
-        annotationProcessor(LibraryAndroid.roomCompiler)
-        kapt(LibraryAndroid.roomCompiler)
-        implementation(LibraryAndroid.room)
-        testImplementation(LibraryAndroid.roomTesting)
+        implementation(libs.roomRuntime)
+        annotationProcessor(libs.roomCompiler)
+        kapt(libs.roomCompiler)
+        implementation(libs.room)
+        testImplementation(libs.roomTesting)
 
-//        implementation(LibraryAndroid.roomCommon)
+//        implementation(libs.roomCommon)
 
         // Navigation Component
-        implementation LibraryAndroid.navigationFragment
-        implementation LibraryAndroid.navigationUi
+        implementation libs.navigationFragment
+        implementation libs.navigationUi
 
-        implementation LibraryAndroid.swipeRefresh
+        implementation libs.swipeRefresh
 
-        implementation LibraryAndroid.geoHash
+        implementation libs.geoHash
 
         // Glide
-        implementation LibraryAndroid.glide
-        kapt LibraryAndroid.glideCompiler
+        implementation libs.glide
+        kapt libs.glideCompiler
 //        implementation LibraryAndroid.glideToVector
 
         // Change Language
-        implementation LibraryAndroid.localeHelper
+        implementation libs.localeHelper
 
         // Paging 3
-        implementation LibraryAndroid.paging3
+        implementation libs.paging3
 
         // Google
-        implementation LibraryAndroid.gson
+        implementation libs.gson
 
-        implementation LibraryAndroid.googleMaps
-        implementation LibraryAndroid.googleLocation
-        implementation LibraryAndroid.googleFlexbox
+        implementation libs.googleMaps
+        implementation libs.googleLocation
+        implementation libs.googleFlexbox
 
         // Style
-        implementation LibraryAndroid.skeletonLayout
-        implementation LibraryAndroid.progressButton
+        implementation libs.skeletonLayout
+        implementation libs.progressButton
 
         // Multidex
-        implementation LibraryAndroid.multiDex
+        implementation libs.multiDex
 
         /**
          Compose
          **/
 
-        implementation platform(LibraryAndroid.composeBom)
-        androidTestImplementation platform(LibraryAndroid.composeBom)
+        implementation platform(libs.composeBom)
+        androidTestImplementation platform(libs.composeBom)
 //
 //        // Tooling support (Previews, etc.)
-        implementation(LibraryAndroid.composeUIPreview)
-        debugImplementation LibraryAndroid.composeUITool
+        implementation(libs.composeUIPreview)
+        debugImplementation libs.composeUITool
 //
 //        // Material Design
-        implementation LibraryAndroid.composeMaterial3
+        implementation libs.composeMaterial3
 //
         // Material design icons
-        implementation LibraryAndroid.composeMaterialIconCore
-        implementation LibraryAndroid.composeMaterialIconExt
+        implementation libs.composeMaterialIconCore
+        implementation libs.composeMaterialIconExt
         // Integration with activities
-        implementation LibraryAndroid.composeActivity
+        implementation libs.composeActivity
         // Integration with ViewModels
-        implementation LibraryAndroid.composeViewModel
+        implementation libs.composeViewModel
         // Integration with observables
-        implementation LibraryAndroid.composeLiveData
-        implementation LibraryAndroid.composeRXJava
+        implementation libs.composeLiveData
+        implementation libs.composeRXJava
 
         // UI Tests
-        androidTestImplementation LibraryAndroidTesting.composeTestJunit4
+        androidTestImplementation libs.composeTestJunit4
         /**
          Compose
          **/
 
-        testImplementation LibraryAndroidTesting.jUnit
-        testImplementation LibraryAndroidTesting.jUnitJupiterTest
-        testImplementation LibraryAndroidTesting.mockk
-        testImplementation LibraryAndroidTesting.roboElectric
-        androidTestImplementation LibraryAndroidTesting.jUnitJupiterTest
-        androidTestImplementation LibraryAndroidTesting.jUnitTest
+        testImplementation(libs.junit)
+        testImplementation(libs.junitjupiter.test)
+        testImplementation libs.mockk
+        testImplementation libs.roboElectric
+        androidTestImplementation libs.junitjupiter.test
+        androidTestImplementation libs.junit.test
 
-        androidTestImplementation LibraryAndroidTesting.espresso
-        androidTestImplementation LibraryAndroidTesting.testRunner
-        androidTestImplementation LibraryAndroidTesting.testRules
+        androidTestImplementation libs.espresso
+        androidTestImplementation libs.testRunner
+        androidTestImplementation libs.testRules
 
         // For Robolectric tests.
-        testImplementation LibraryAndroidTesting.daggerHiltTesting
+        testImplementation libs.daggerHiltTesting
         // ...with Kotlin.
-        kaptTest LibraryAndroid.daggerHiltCompiler
+        kaptTest libs.daggerHiltCompiler
         // For instrumented tests.
-        androidTestImplementation LibraryAndroidTesting.daggerHiltTesting
+        androidTestImplementation libs.daggerHiltTesting
         // ...with Kotlin.
-        kaptAndroidTest LibraryAndroid.daggerHiltCompiler
+        kaptAndroidTest libs.daggerHiltCompiler
 
-        testImplementation LibraryAndroidTesting.truth
-        androidTestImplementation LibraryAndroidTesting.truth
+        testImplementation libs.truth
+        androidTestImplementation libs.truth
 
-        testImplementation LibraryAndroidTesting.mockitoCore
-        androidTestImplementation LibraryAndroidTesting.mockitoCore
+        testImplementation libs.mockitoCore
+        androidTestImplementation libs.mockitoCore
 
-        testImplementation LibraryAndroidTesting.coroutinesTest
-        androidTestImplementation LibraryAndroidTesting.coroutinesTest
+        testImplementation libs.coroutinesTest
+        androidTestImplementation libs.coroutinesTest
 
-        testImplementation LibraryAndroidTesting.archCore
-        androidTestImplementation LibraryAndroidTesting.archCore
+        testImplementation libs.archCore
+        androidTestImplementation libs.archCore
 
-        testImplementation(project(Modules.unitTest))
-        androidTestImplementation(project(Modules.unitTest))
+        testImplementation(project(Modules.UNIT_TEST))
+        androidTestImplementation(project(Modules.UNIT_TEST))
     }
 }

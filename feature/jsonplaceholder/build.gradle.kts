@@ -13,10 +13,10 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(project(Modules.common))
-    implementation(project(Modules.modelCommon))
-    implementation(project(Modules.navigation))
-    implementation(project(Modules.repository))
+    implementation(project(Modules.Library.COMMON))
+    implementation(project(Modules.Model.COMMON))
+    implementation(project(Modules.NAVIGATION))
+    implementation(project(Modules.REPOSITORY))
 
-    implementation(project(Modules.modelJsonPlaceHolder))
+    implementation(project(Modules.Model.JSON_PLACEHOLDER))
 }

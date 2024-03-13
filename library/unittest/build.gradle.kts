@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.general.library.unittest"
-    compileSdk = Release.maxSDK
+    compileSdk = Release.MAX_SDK
 
     defaultConfig {
-        minSdk = Release.minSDK
+        minSdk = Release.MIN_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -82,23 +82,23 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.common))
+    implementation(project(Modules.Library.COMMON))
 
-    implementation(LibraryAndroidTesting.mockitoCore)
-    implementation(LibraryAndroidTesting.jUnit)
-    implementation(LibraryAndroidTesting.jUnitTest)
-    implementation(LibraryAndroidTesting.jUnitJupiterTest)
-    implementation(LibraryAndroidTesting.coroutinesTest)
+    implementation(libs.mockitoCore)
+    implementation(libs.junit)
+    implementation(libs.junit.test)
+    implementation(libs.junitjupiter.test)
+    implementation(libs.coroutinesTest)
 
-    implementation(LibraryAndroidTesting.mockk)
-    implementation(LibraryAndroidTesting.roboElectric)
+    implementation(libs.mockk)
+    implementation(libs.roboElectric)
 
-    implementation(LibraryAndroidTesting.espresso)
-    implementation(LibraryAndroidTesting.testRunner)
-    implementation(LibraryAndroidTesting.testRules)
-    implementation(LibraryAndroidTesting.jUnit)
-    implementation(LibraryAndroidTesting.mockitoCore)
-    implementation(LibraryAndroidTesting.archCore)
+    implementation(libs.espresso)
+    implementation(libs.testRunner)
+    implementation(libs.testRules)
+    implementation(libs.junit)
+    implementation(libs.mockitoCore)
+    implementation(libs.archCore)
 }
 
 allprojects {

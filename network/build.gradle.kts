@@ -18,44 +18,44 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.common))
-    implementation(project(Modules.modelCommon))
-    implementation(project(Modules.local))
+    implementation(project(Modules.Library.COMMON))
+    implementation(project(Modules.Model.COMMON))
+    implementation(project(Modules.LOCAL))
 
-    implementation(project(Modules.modelJsonPlaceHolder))
+    implementation(project(Modules.Model.JSON_PLACEHOLDER))
 
-    implementation(LibraryAndroid.androidXDataStore)
+    implementation(libs.androidXDataStore)
 
-    implementation(LibraryAndroid.retrofit)
-    implementation(LibraryAndroid.retrofitRX)
-    implementation(LibraryAndroid.retrofitCoroutines)
-    implementation(LibraryAndroid.retrofitConverterGson)
-    implementation(LibraryAndroid.rxAndroid)
-    implementation(LibraryAndroid.rxJava)
+    implementation(libs.retrofit)
+    implementation(libs.retrofitRX)
+    implementation(libs.retrofitCoroutines)
+    implementation(libs.retrofitConverterGson)
+    implementation(libs.rxAndroid)
+    implementation(libs.rxJava)
 
-    implementation(LibraryAndroid.moshi)
-    implementation(LibraryAndroid.moshiKotlin)
-    implementation(LibraryAndroid.retrofitConverterMoshi)
+    implementation(libs.moshi)
+    implementation(libs.moshiKotlin)
+    implementation(libs.retrofitConverterMoshi)
 
-    implementation(platform(LibraryAndroid.okhttpPlatform))
-    implementation(LibraryAndroid.okHttp)
-    implementation(LibraryAndroid.okhttpLogging)
+    implementation(platform(libs.okhttpPlatform))
+    implementation(libs.okHttp)
+    implementation(libs.okhttpLogging)
 
     // Dagger Hilt
-    kaptAndroidTest(LibraryAndroidTesting.dagger)
+    kaptAndroidTest(libs.dagger)
     // Hilt dependencies
-    implementation(LibraryAndroid.daggerHilt)
-    kapt(LibraryAndroid.daggerHiltCompiler)
+    implementation(libs.daggerHilt)
+    kapt(libs.daggerHiltCompiler)
 
     //HTTP Inspector
-    "localhostImplementation"(LibraryAndroid.chuckerActive)
-    debugImplementation(LibraryAndroid.chuckerActive)
-    "qaImplementation"(LibraryAndroid.chuckerActive)
-    "preprodImplementation"(LibraryAndroid.chuckerActive)
-    releaseImplementation(LibraryAndroid.chuckerDisable)
+    "localhostImplementation"(libs.chuckerActive)
+    debugImplementation(libs.chuckerActive)
+    "qaImplementation"(libs.chuckerActive)
+    "preprodImplementation"(libs.chuckerActive)
+    releaseImplementation(libs.chuckerDisable)
 
-    implementation(LibraryAndroid.gson)
+    implementation(libs.gson)
 
-//    implementation(platform(LibraryAndroid.firebaseBOM))
-//    implementation(LibraryAndroid.firebaseDatabase)
+//    implementation(platform(libs.firebaseBOM))
+//    implementation(libs.firebaseDatabase)
 }

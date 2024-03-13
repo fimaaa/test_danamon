@@ -10,6 +10,6 @@ android {
 }
 
 dependencies {
-    implementation(LibraryAndroid.navigationFragment)
-    implementation(LibraryAndroid.navigationUi)
+    implementation(libs.navigationFragment)
+    implementation(libs.navigationUi)
 }

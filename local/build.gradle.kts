@@ -11,26 +11,26 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.modelCommon))
+    implementation(project(Modules.Model.COMMON))
 
-    implementation(project(Modules.modelJsonPlaceHolder))
+    implementation(project(Modules.Model.JSON_PLACEHOLDER))
 
-    implementation(LibraryAndroid.gson)
+    implementation(libs.gson)
 
-    implementation(LibraryAndroid.paging3)
+    implementation(libs.paging3)
 
-    implementation(LibraryAndroid.roomRuntime)
-    annotationProcessor(LibraryAndroid.roomCompiler)
-    kapt(LibraryAndroid.roomCompiler)
-    implementation(LibraryAndroid.room)
-    implementation(LibraryAndroid.roomPaging)
-    testImplementation(LibraryAndroid.roomTesting)
+    implementation(libs.roomRuntime)
+    annotationProcessor(libs.roomCompiler)
+    kapt(libs.roomCompiler)
+    implementation(libs.room)
+    implementation(libs.roomPaging)
+    testImplementation(libs.roomTesting)
 
-    implementation(LibraryAndroid.androidXDataStore)
+    implementation(libs.androidXDataStore)
 
     // Dagger Hilt
-    kaptAndroidTest(LibraryAndroidTesting.dagger)
+    kaptAndroidTest(libs.dagger)
     // Hilt dependencies
-    implementation(LibraryAndroid.daggerHilt)
-    kapt(LibraryAndroid.daggerHiltCompiler)
+    implementation(libs.daggerHilt)
+    kapt(libs.daggerHiltCompiler)
 }

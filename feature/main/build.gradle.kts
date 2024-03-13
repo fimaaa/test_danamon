@@ -11,13 +11,13 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.common))
-    implementation(project(Modules.modelCommon))
-    implementation(project(Modules.navigation))
-    implementation(project(Modules.repository))
+    implementation(project(Modules.Library.COMMON))
+    implementation(project(Modules.Model.COMMON))
+    implementation(project(Modules.NAVIGATION))
+    implementation(project(Modules.REPOSITORY))
 
-    implementation(project(Modules.featureJsonPlaceHolder))
-    implementation(project(Modules.featureAdmin))
+    implementation(project(Modules.Feature.JSON_PLACEHOLDER))
+    implementation(project(Modules.Feature.ADMIN))
 
 //    implementation(platform(LibraryAndroid.firebaseBOM))
 //    implementation(LibraryAndroid.firebaseDatabase)

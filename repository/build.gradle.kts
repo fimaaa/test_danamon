@@ -11,33 +11,33 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.common))
-    implementation(project(Modules.modelCommon))
-    implementation(project(Modules.network))
-    implementation(project(Modules.local))
+    implementation(project(Modules.Library.COMMON))
+    implementation(project(Modules.Model.COMMON))
+    implementation(project(Modules.NETWORK))
+    implementation(project(Modules.LOCAL))
 
-    implementation(project(Modules.modelJsonPlaceHolder))
+    implementation(project(Modules.Model.JSON_PLACEHOLDER))
 
-    implementation(LibraryAndroid.gson)
+    implementation(libs.gson)
 
-    implementation(LibraryAndroid.okhttpPlatform)
-    implementation(LibraryAndroid.okHttp)
+    implementation(platform(libs.okhttpPlatform))
+    implementation(libs.okHttp)
 
-    implementation(LibraryAndroid.androidXDataStore)
+    implementation(libs.androidXDataStore)
 
     // Dagger Hilt
-    kaptAndroidTest(LibraryAndroidTesting.dagger)
+    kaptAndroidTest(libs.dagger)
     // Hilt dependencies
-    implementation(LibraryAndroid.daggerHilt)
-    kapt(LibraryAndroid.daggerHiltCompiler)
+    implementation(libs.daggerHilt)
+    kapt(libs.daggerHiltCompiler)
 
-    implementation(LibraryAndroid.paging3)
-    implementation(LibraryAndroid.webSocket)
+    implementation(libs.paging3)
+    implementation(libs.webSocket)
 
-    implementation(LibraryAndroid.geoHash)
+    implementation(libs.geoHash)
 
-//    implementation(platform(LibraryAndroid.firebaseBOM))
-//    implementation(LibraryAndroid.firebaseDatabase)
-//    implementation(LibraryAndroid.firebaseNotification)
-//    implementation(LibraryAndroid.firebaseConfig)
+//    implementation(platform(libs.firebaseBOM))
+//    implementation(libs.firebaseDatabase)
+//    implementation(libs.firebaseNotification)
+//    implementation(libs.firebaseConfig)
 }

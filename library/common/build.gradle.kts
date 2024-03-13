@@ -32,23 +32,23 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.modelCommon))
-    implementation(project(Modules.navigation))
+    implementation(project(Modules.Model.COMMON))
+    implementation(project(Modules.NAVIGATION))
 
-    implementation(LibraryAndroid.retrofit)
+    implementation(libs.retrofit)
 
-    implementation(LibraryAndroid.cameraView)
-    implementation(LibraryAndroid.cameraCore)
-    implementation(LibraryAndroid.camera2)
-    implementation(LibraryAndroid.cameraLifeCycle)
+    implementation(libs.cameraView)
+    implementation(libs.cameraCore)
+    implementation(libs.camera2)
+    implementation(libs.cameraLifeCycle)
 
-    implementation(LibraryAndroid.gcacaceSignaturePad)
-    implementation(LibraryAndroid.dhavaImagePicker)
-    implementation(LibraryAndroid.zeloryCompressor)
-    implementation(LibraryAndroid.photoView)
+    implementation(libs.gcacaceSignaturePad)
+    implementation(libs.dhavaImagePicker)
+    implementation(libs.zeloryCompressor)
+    implementation(libs.photoView)
 
-//    implementation(platform(LibraryAndroid.firebaseBOM))
-//    implementation(LibraryAndroid.firebaseCrashlytics)
-//    implementation(LibraryAndroid.firebaseAnalytics)
-//    implementation(LibraryAndroid.firebaseConfig)
+//    implementation(platform(libs.firebaseBOM))
+//    implementation(libs.firebaseCrashlytics)
+//    implementation(libs.firebaseAnalytics)
+//    implementation(libs.firebaseConfig)
 }
