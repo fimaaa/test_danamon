@@ -19,7 +19,43 @@ android {
                 "META-INF/NOTICE.txt",
                 "META-INF/notice.txt",
                 "META-INF/ASL2.0",
-                "META-INF/*.kotlin_module"
+                "META-INF/*.kotlin_module",
+                "META-INF/DEPENDENCIES",
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/license.txt",
+                "META-INF/NOTICE",
+                "META-INF/NOTICE.txt",
+                "META-INF/notice.txt",
+                "META-INF/ASL2.0",
+                "META-INF/*.kotlin_module",
+                "AndroidManifest.xml"
+            )
+        }
+        jniLibs {
+            excludes += setOf(
+                "lib/arm64-v8a/libcardioDecider.so",
+                "lib/arm64-v8a/libcardioRecognizer.so",
+                "lib/arm64-v8a/libcardioRecognizer_tegra2.so",
+                "lib/arm64-v8a/libopencv_core.so",
+                "lib/arm64-v8a/libopencv_imgproc.so",
+                "lib/armeabi/libcardioDecider.so",
+                "lib/armeabi-v7a/libcardioDecider.so",
+                "lib/armeabi-v7a/libcardioRecognizer.so",
+                "lib/armeabi-v7a/libcardioRecognizer_tegra2.so",
+                "lib/armeabi-v7a/libopencv_core.so",
+                "lib/armeabi-v7a/libopencv_imgproc.so",
+                "lib/mips/libcardioDecider.so",
+                "lib/x86/libcardioDecider.so",
+                "lib/x86/libcardioRecognizer.so",
+                "lib/x86/libcardioRecognizer_tegra2.so",
+                "lib/x86/libopencv_core.so",
+                "lib/x86/libopencv_imgproc.so",
+                "lib/x86_64/libcardioDecider.so",
+                "lib/x86_64/libcardioRecognizer.so",
+                "lib/x86_64/libcardioRecognizer_tegra2.so",
+                "lib/x86_64/libopencv_core.so",
+                "lib/x86_64/libopencv_imgproc.so"
             )
         }
     }

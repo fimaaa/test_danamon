@@ -30,7 +30,7 @@ object Release {
     const val VERSION_CODE: Int = VERSION_MAJOR*10000 + VERSION_MINOR*100 + VERSION_PATCH
     const val VERSION_APP_NAME: String = "$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"
     const val MIN_SDK = 21
-    const val MAX_SDK = 33
+    const val MAX_SDK = 34
 
     const val APP_NAME = "Test_Danamon"
 }

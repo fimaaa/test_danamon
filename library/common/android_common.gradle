@@ -20,7 +20,6 @@ android {
             minifyEnabled true
             testCoverageEnabled false
             minifyEnabled true
-            debuggable false
             testCoverageEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             consumerProguardFiles "consumer-rules.pro"
@@ -29,7 +28,6 @@ android {
             buildConfigField "long", "VERSION_CODE", "${Release.VERSION_CODE}"
             resValue "string","version_name","${Release.VERSION_APP_NAME}-preprod"
             minifyEnabled true
-            debuggable true
             testCoverageEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             consumerProguardFiles "consumer-rules.pro"
@@ -38,7 +36,6 @@ android {
             buildConfigField "long", "VERSION_CODE", "${Release.VERSION_CODE}"
             resValue "string","version_name","${Release.VERSION_APP_NAME}-qa"
             minifyEnabled true
-            debuggable true
             testCoverageEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             consumerProguardFiles "consumer-rules.pro"
@@ -48,7 +45,6 @@ android {
             resValue "string","version_name","${Release.VERSION_APP_NAME}-dev"
             minifyEnabled false
             testCoverageEnabled true
-            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             consumerProguardFiles "consumer-rules.pro"
         }
@@ -57,7 +53,6 @@ android {
             resValue "string","version_name","${Release.VERSION_APP_NAME}-local"
             minifyEnabled false
             testCoverageEnabled true
-            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             consumerProguardFiles "consumer-rules.pro"
         }
@@ -72,40 +67,12 @@ android {
     }
 
     packagingOptions {
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/ASL2.0'
-        exclude("META-INF/*.kotlin_module")
         resources.excludes.add("META-INF/*")
 
-        exclude 'AndroidManifest.xml'
-        exclude 'lib/arm64-v8a/libcardioDecider.so'
-        exclude 'lib/arm64-v8a/libcardioRecognizer.so'
-        exclude 'lib/arm64-v8a/libcardioRecognizer_tegra2.so'
-        exclude 'lib/arm64-v8a/libopencv_core.so'
-        exclude 'lib/arm64-v8a/libopencv_imgproc.so'
-        exclude 'lib/armeabi/libcardioDecider.so'
-        exclude 'lib/armeabi-v7a/libcardioDecider.so'
-        exclude 'lib/armeabi-v7a/libcardioRecognizer.so'
-        exclude 'lib/armeabi-v7a/libcardioRecognizer_tegra2.so'
-        exclude 'lib/armeabi-v7a/libopencv_core.so'
-        exclude 'lib/armeabi-v7a/libopencv_imgproc.so'
-        exclude 'lib/mips/libcardioDecider.so'
-        exclude 'lib/x86/libcardioDecider.so'
-        exclude 'lib/x86/libcardioRecognizer.so'
-        exclude 'lib/x86/libcardioRecognizer_tegra2.so'
-        exclude 'lib/x86/libopencv_core.so'
-        exclude 'lib/x86/libopencv_imgproc.so'
-        exclude 'lib/x86_64/libcardioDecider.so'
-        exclude 'lib/x86_64/libcardioRecognizer.so'
-        exclude 'lib/x86_64/libcardioRecognizer_tegra2.so'
-        exclude 'lib/x86_64/libopencv_core.so'
-        exclude 'lib/x86_64/libopencv_imgproc.so'
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 }
 
