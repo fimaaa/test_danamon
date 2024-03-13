@@ -2,9 +2,6 @@
 import java.nio.file.Paths
 
 buildscript {
-    val appName by extra(Release.APP_NAME)
-
-
     repositories {
         google()
         mavenCentral()

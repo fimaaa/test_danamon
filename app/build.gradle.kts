@@ -43,7 +43,7 @@ android {
         applicationVariants.all {
             outputs.forEach { output ->
                 if (output is com.android.build.gradle.internal.api.BaseVariantOutputImpl) {
-                    var outputFileName = "heroapp-${this.versionName}.${output.outputFile.extension}"
+                    var outputFileName = "test-danamon-${this.versionName}.${output.outputFile.extension}"
                     output.outputFileName = outputFileName
                 }
             }
