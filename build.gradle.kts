@@ -29,7 +29,6 @@ buildscript {
 val ndkVersion by extra("26.1.10909125")
 
 tasks.register<Copy>("installGitHook") {
-    println("TAG TASK INSTALLGITHOOK")
     from(Paths.get(rootProject.rootDir.toString(), "pre-commit"))
     into(Paths.get(rootProject.rootDir.toString(), ".git", "hooks"))
     doLast {
@@ -45,7 +44,6 @@ tasks.register<Copy>("installGitHook") {
 
 tasks {
     register("clean", Delete::class) {
-        println("TAG CLEAN ${rootProject.buildDir}")
         delete(rootProject.buildDir)
     }
 }
